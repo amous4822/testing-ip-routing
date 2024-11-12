@@ -1,9 +1,20 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <div>
+        <h1>Home Page</h1>
+        <p>Welcome to the Next.js app!</p>
+        <nav>
+          <ul>
+            <li><Link href="/page1">Go to Page 1</Link></li>
+            <li><Link href="/page2">Go to Page 2</Link></li>
+          </ul>
+        </nav>
+      </div>
       <main className={styles.main}>
         <Image
           className={styles.logo}
