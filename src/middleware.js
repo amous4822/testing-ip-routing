@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(req) {
+export async function middleware (req) {
     console.log({first: "inside middleware"})
     // Extract the IP address from request headers
     const ip = req.headers.get('x-forwarded-for') || req.ip || '0.0.0.0';
     console.log({ firstIP: ip })
 
     // Mock or use a real service to map IP to location (use APIs or geo-databases)
-    const geoInfo = getRegionFromIP(ip); // Replace this with actual IP-to-region mapping logic
+    const geoInfo = await getRegionFromIP(ip); // Replace this with actual IP-to-region mapping logic
     console.log({ firstInfo: geoInfo })
 
     const currentDate = new Date();
